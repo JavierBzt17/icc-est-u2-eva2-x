@@ -38,7 +38,7 @@ public class App {
         LibroController controller = new LibroController();
         Set<Book> resultado = controller.procesarLibros(libros);
 
-        System.out.println("Libros ordenados:");
+        System.out.println("Libros :");
         for (Book libro : resultado) {
             System.out.println(libro);
         }
