@@ -1,9 +1,11 @@
-import java.util.List;
-
+import controllers.LibroController;
 import models.Book;
 
+import java.util.List;
+import java.util.Set;
+
 public class App {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         List<Book> libros = List.of(
                 new Book("Java Básico", "Luis Pérez", 2021), // Duplicado
                 new Book("Java Básico", "Luis Pérez", 2019),
@@ -30,6 +32,15 @@ public class App {
                 new Book("Java Avanzado", "Luis Pérez", 2019), // Duplicado
                 new Book("Ciberseguridad", "Pedro León", 2023),
                 new Book("Blockchain", "Marta Ríos", 2021),
-                new Book("Machine Learning", "Cristina Gómez", 2022));
+                new Book("Machine Learning", "Cristina Gómez", 2022)
+        );
+
+        LibroController controller = new LibroController();
+        Set<Book> resultado = controller.procesarLibros(libros);
+
+        System.out.println("Libros ordenados:");
+        for (Book libro : resultado) {
+            System.out.println(libro);
+        }
     }
 }
